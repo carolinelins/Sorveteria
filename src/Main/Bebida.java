@@ -1,8 +1,13 @@
 package Main;
 
-import java.util.Date;
+import java.sql.Connection;
+import java.sql.Date;
+import java.util.List;
+
+import ConexaoBanco.ConexaoMySQL;
 
 public class Bebida extends Produto {
+	private int ID;
 	private String tipo;
 	private String embalagem;
 	private double preco;
@@ -10,7 +15,22 @@ public class Bebida extends Produto {
 	private Date dataDeValidade;
 	
 	public Bebida adicionarBebida(String tipo, String embalagem, double preco, int estoque, Date dataDeValidade) {
-		Bebida bebida = new Bebida();
+		Connection con = ConexaoMySQL.getConexao();
+		Bebida b = new Bebida();
+		BebidaDAO bd = new BebidaDAO(con);
+
+		b.setTipo(tipo);
+		b.setEmbalagem(embalagem);
+		b.setPreco(preco);
+		b.setEstoque(estoque);
+		b.setDataDeValidade(dataDeValidade);
+		System.out.println(bd.inserir(b));
+		
+		ConexaoMySQL.fecharConexao(con);
+		
+		return b;
+		
+		/*Bebida bebida = new Bebida();
 		
 		bebida.setTipo(tipo);
 		bebida.setEmbalagem(embalagem);
@@ -18,19 +38,37 @@ public class Bebida extends Produto {
 		bebida.setEstoque(estoque);
 		bebida.setDataDeValidade(dataDeValidade);
 		
-		return bebida;
+		return bebida;*/
+		
 	}
 	
 	@Override
 	public void listarProdutos() {
-		// TODO Auto-generated method stub
-		super.listarProdutos();
+		Connection con = ConexaoMySQL.getConexao();
+		BebidaDAO bd = new BebidaDAO(con);
+		List<Bebida> lista = bd.listarTodos();
+		if(lista != null){
+			for(Bebida bebida : lista){
+				System.out.println("Tipo: "+bebida.getTipo());
+				System.out.println("Embalagem: "+bebida.getEmbalagem());
+				System.out.println("Preço: "+bebida.getPreco());
+				System.out.println("Estoque: "+bebida.getEstoque());
+				System.out.println("Data de Validade: "+bebida.getDataDeValidade());
+			}
+		}
+		ConexaoMySQL.fecharConexao(con);
 	}
 
 	@Override
 	public void excluirProduto(int ID) {
-		// TODO Auto-generated method stub
-		super.excluirProduto(ID);
+		Connection con = ConexaoMySQL.getConexao();
+		Bebida b = new Bebida();
+		BebidaDAO bd = new BebidaDAO(con);
+		//Testando método inserir
+		b.setID(ID);
+		System.out.println(bd.excluir(b));
+		
+		ConexaoMySQL.fecharConexao(con);
 	}
 	
 	public String getTipo() {
@@ -85,4 +123,12 @@ public class Bebida extends Produto {
 		super.setDataDeValidade(dataDeValidade);
 	}
 
+	public int getID() {
+		return ID;
+	}
+
+	public void setID(int iD) {
+		ID = iD;
+	}
+	
 }

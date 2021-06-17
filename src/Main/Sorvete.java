@@ -1,8 +1,9 @@
 package Main;
 
-import java.util.Date;
+import java.sql.Date;
 
 public class Sorvete extends Produto {
+	private int ID;
 	private String sabor;
 	private double preco;
 	private int estoque;
@@ -74,4 +75,14 @@ public class Sorvete extends Produto {
 		// TODO Auto-generated method stub
 		super.setDataDeValidade(dataDeValidade);
 	}
+
+	public int getID() {
+		return ID;
+	}
+
+	public void setID(int iD) {
+		ID = iD;
+	}
+	
+	
 }
