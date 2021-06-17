@@ -8,25 +8,26 @@ public class TesteClass {
 	public static void main(String[] args) {         
 		Connection con = ConexaoMySQL.getConexao();         
 		Bebida b = new Bebida();         
-		BebidaDAO bd = new BebidaDAO(con);              
-		/*Cliente cb = new Cliente();         
+		BebidaDAO bd = new BebidaDAO(con);  
+		
+		/*Cliente cb = new Cliente();    ----------- ok     
 		ClienteDAO cd = new ClienteDAO(con);        
 		Sorvete s = new Sorvete();         
 		SorveteDAO sd = new SorveteDAO(con);             
 		Pedido p = new Pedido();         
 		Pedido);         */
-			//b.setTipo("Refrigerante");         
+			//b.setTipo("Refrigerante");  ---------- ok       
 			//b.setPreco(6.99);         
 			  //System.out.println(bd.inserir(b));
 			  
-			  /*s.setID(999);
+			  /*s.setID(999); ----------- ok
 			  s.setSabor("coco");
 			  s.setPreco(6.85);
 			  s.setEstoque(50);
 			  s.getDataDeValidade();
 			  System.out.println(sd.inserir(s));*/
 		
-		//Testando excluir        
+		//Testando excluir        -------------- ok
 		//b.setID(12473);        
 		//System.out.println(bd.excluir(b));
 		
@@ -42,7 +43,7 @@ public class TesteClass {
 				System.out.println("data_de_validade: "+bebida.getDataDeValidade()); 				
 			}         
 		}     
-		/*List<Cliente> lista = cd.listarTodos();         
+		List<Cliente> lista = cd.listarTodos();         
 		if(lista != null){             
 			for(Cliente cliente : lista){ 
 				System.out.println("Lista Cliente:");
@@ -70,7 +71,7 @@ public class TesteClass {
 				System.out.println("cliente_id: "+pedido.getClienteID());                 
 				System.out.println("forma_de_pagamento: "+pedido.getFormaDePagamento());				
 			}         
-		} */
+		} 
 		
 		ConexaoMySQL.fecharConexao(con);
 	} 
