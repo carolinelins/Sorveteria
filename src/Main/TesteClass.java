@@ -8,14 +8,13 @@ public class TesteClass {
 	public static void main(String[] args) {         
 		Connection con = ConexaoMySQL.getConexao();         
 		Bebida b = new Bebida();         
-		BebidaDAO bd = new BebidaDAO(con);  
-		
-		/*Cliente cb = new Cliente();    ----------- ok     
-		ClienteDAO cd = new ClienteDAO(con);        
+		BebidaDAO bd = new BebidaDAO(con);      
 		Sorvete s = new Sorvete();         
-		SorveteDAO sd = new SorveteDAO(con);             
+		SorveteDAO sd = new SorveteDAO(con);
 		Pedido p = new Pedido();         
-		Pedido);         */
+		PedidoDAO pd = new PedidoDAO(con);
+		Cliente cb = new Cliente();         
+		ClienteDAO cd = new ClienteDAO(con);
 			//b.setTipo("Refrigerante");  ---------- ok       
 			//b.setPreco(6.99);         
 			  //System.out.println(bd.inserir(b));
@@ -40,7 +39,8 @@ public class TesteClass {
 				System.out.println("embalagem: "+bebida.getEmbalagem());
 				System.out.println("preco: "+bebida.getPreco()); 
 				System.out.println("estoque: "+bebida.getEstoque()); 
-				System.out.println("data_de_validade: "+bebida.getDataDeValidade()); 				
+				System.out.println("data_de_validade: "+bebida.getDataDeValidade()); 	
+				System.out.println("");
 			}         
 		}     
 		List<Cliente> lista = cd.listarTodos();         
@@ -49,7 +49,8 @@ public class TesteClass {
 				System.out.println("Lista Cliente:");
 				System.out.println("ID: "+cliente.getID());                 
 				System.out.println("nome: "+cliente.getNome());                 
-				System.out.println("CPF: "+cliente.getCPF());             
+				System.out.println("CPF: "+cliente.getCPF());  
+				System.out.println("");
 				}         
 			}    
 		List<Sorvete> listaSorvete = sd.listarTodos();         
@@ -61,6 +62,7 @@ public class TesteClass {
 				System.out.println("preco: "+sorvete.getPreco());
 				System.out.println("estoque: "+sorvete.getEstoque()); 
 				System.out.println("data_de_validade: "+sorvete.getDataDeValidade()); 
+				System.out.println("");
 			}         
 		}    
 		List<Pedido> listaPedido = pd.listarTodos();         
@@ -69,11 +71,11 @@ public class TesteClass {
 				System.out.println("Lista Pedido:");
 				System.out.println("preco: "+pedido.getPreco());                 
 				System.out.println("cliente_id: "+pedido.getClienteID());                 
-				System.out.println("forma_de_pagamento: "+pedido.getFormaDePagamento());				
+				System.out.println("forma_de_pagamento: "+pedido.getFormaDePagamento());
+				System.out.println("");
 			}         
 		} 
-		
-		ConexaoMySQL.fecharConexao(con);
+			Connectionz.fecharConexao(con);	
 	} 
 	
 }
