@@ -35,7 +35,7 @@ public class PedidoDAO {
 			PreparedStatement ps = getCon().prepareStatement(sql);             
 			ps.setInt(1, pedido.getID());             
 			if (ps.executeUpdate() > 0) {                 
-				return "Excluído com sucesso.";             
+				return "ExcluÃ­do com sucesso.";             
 			} else {                 
 				return "Erro ao excluir";             
 			}         
@@ -46,7 +46,7 @@ public class PedidoDAO {
 	}
 
 	public List<Pedido> listarTodos() {         
-		String sql = "select * from banco ";         
+		String sql = "select * from pedido ";         
 		List<Pedido> listaPedido = new ArrayList<Pedido>();         
 		try {             
 			PreparedStatement ps = getCon().prepareStatement(sql);             
