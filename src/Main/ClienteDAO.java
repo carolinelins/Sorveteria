@@ -33,7 +33,7 @@ public class ClienteDAO {
 			PreparedStatement ps = getCon().prepareStatement(sql);             
 			ps.setString(1, cliente.getNome());             
 			if (ps.executeUpdate() > 0) {                 
-				return "Excluído com sucesso.";             
+				return "ExcluÃ­do com sucesso.";             
 			} else {                 
 				return "Erro ao excluir";             
 			}         
@@ -44,7 +44,7 @@ public class ClienteDAO {
 	}
 
 	public List<Cliente> listarTodos() {         
-		String sql = "select * from banco ";         
+		String sql = "select * from cliente ";         
 		List<Cliente> listaCliente = new ArrayList<Cliente>();         
 		try {             
 			PreparedStatement ps = getCon().prepareStatement(sql);             
