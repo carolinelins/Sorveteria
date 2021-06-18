@@ -58,7 +58,7 @@ public class SorveteDAO {
 
 			if (ps.executeUpdate() > 0) {
 
-				return "Excluído com sucesso.";
+				return "ExcluÃ­do com sucesso.";
 
 			} else {
 
@@ -76,7 +76,7 @@ public class SorveteDAO {
 
 	public List<Sorvete> listarTodos() {
 
-		String sql = "select * from bebida ";
+		String sql = "select * from sorvete ";
 		
 		List<Sorvete> listaSorvete = new ArrayList<Sorvete>();
 		
